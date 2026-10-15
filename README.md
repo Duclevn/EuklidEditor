@@ -26,10 +26,11 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 - **Editor:** fast Scintilla editing, syntax highlighting, brace matching, highlight of the selected word, word wrap, zoom, multi-cursor and a split editor. Saves keep your encoding and line endings (UTF-8/16/32 with BOM detection), never write half a file, and notice when another program changed the file.
 - **Hot exit:** closing MDLite keeps unsaved edits and open tabs for the next start. You can turn it off in Settings.
 - **Preview:** Markdown (tables, code highlighting, Mermaid, PlantUML, KaTeX math), JSON tree view, OpenAPI/Swagger, CSV, PDF and images. Everything renders offline, with network access blocked.
-- **View only mode** (`Ctrl+Alt+V`, or the **View only** / **Edit** button in the title bar): the window shows just the file, as its Preview or as read-only text, with nothing else around it. The mode is remembered, so a file you double-click opens straight into the quiet reading view.
-- **Terminal:** integrated PowerShell, Command Prompt or WSL, with copy and paste as in Windows Terminal. MDLite asks before closing over a running command.
-- **Workspace:** folder Explorer with file-type icons, drag and drop, delete to the Recycle Bin, and Go to File (`Ctrl+P`) with fuzzy search.
-- **Command Palette** (`Ctrl+Shift+P`): every command, Go to Line, Go to Symbol, color theme, language and indentation pickers.
+- **View only mode** (`Ctrl+Alt+V`, or the **Read** / **Edit** button in the title bar): the window shows just the file, as its Preview or as read-only text, with nothing else around it. The mode is remembered, so a file you double-click opens straight into the quiet reading view.
+- **Terminal:** integrated PowerShell, Command Prompt or WSL, with copy and paste as in Windows Terminal. MDLite asks before closing over a running command. While a Windows screen reader runs it turns on xterm's screen reader mode, and its cursor stops blinking when Windows animations are off.
+- **Workspace:** folder Explorer with file-type icons, drag and drop, delete to the Recycle Bin, Go to File (`Ctrl+P`) with fuzzy search, and Find in Files (`Ctrl+Shift+F`) with results grouped by file, files to include and exclude, and Replace in Files (`Ctrl+Shift+H`), which confirms first and skips files changed since the search.
+- **Start page and Open Recent:** with no document open, the editor shows Open File and Open Folder, your recent files and folders, and the main keys; just start typing for a new file. File → Open Recent (`Ctrl+R`) keeps the last 10 files and folders.
+- **Command Palette** (`Ctrl+Shift+P`): every command, the ones you used recently first, Go to Line, Go to Symbol, color theme, language and indentation pickers. Help → Keyboard Shortcuts (`Ctrl+K Ctrl+S`) lists every key.
 - **Find and Replace:** find as you type, match count, regular expressions, case and whole-word options.
 - **Themes:** Default (Mariana-style), Dark and Light, with a compact custom title bar that keeps Windows Snap Layouts.
 
@@ -67,17 +68,25 @@ Files opened while MDLite is running, or several selected at once, open as tabs 
 |---|---|
 | Command Palette | `Ctrl+Shift+P` / `F1` |
 | Go to File (type `name:12` to open at a line) | `Ctrl+P` |
+| Open Recent | `Ctrl+R` |
+| Keyboard Shortcuts | `Ctrl+K Ctrl+S` |
 | Go to Line | `Ctrl+G` |
 | Go to Symbol in the file (or type `@` in Go to File) | `Ctrl+Shift+O` |
 | Find / Replace | `Ctrl+F` / `Ctrl+H` |
+| Find in Files / Replace in Files | `Ctrl+Shift+F` / `Ctrl+Shift+H` |
 | Toggle Explorer / Terminal / Preview | `Ctrl+B` / `Ctrl+Shift+T` (or ``Ctrl+` ``) / `Ctrl+Shift+V` |
 | Split editor | `Ctrl+\` |
 | View only / Edit mode | `Ctrl+Alt+V` |
 | Word Wrap | `Alt+Z` |
 | Zoom in / out / reset | `Ctrl+=` / `Ctrl+-` / `Ctrl+0` |
 | Next / previous editor | `Ctrl+Tab` / `Ctrl+Shift+Tab` |
+| Show All Editors / Reopen Closed Editor | `Ctrl+K Ctrl+P` / `Ctrl+K Ctrl+Shift+T` |
+| Focus editor / Preview / Terminal / Explorer | `Ctrl+1` / `Ctrl+2` / `Ctrl+3` / `Ctrl+Shift+E` |
+| Next / previous pane | `F6` / `Shift+F6` |
 | Go back / forward | `Alt+Left` / `Alt+Right`, or the mouse back / forward buttons |
 | Settings | `Ctrl+,` |
+
+Opening the Terminal puts the cursor in the shell, and every menu item has an access key (`Alt`, then the underlined letters). With more tabs than fit, a list button beside the tab chevrons shows every open editor, and Reopen Closed Editor brings back the last closed file.
 
 Editing keys follow VS Code and Sublime Text:
 
