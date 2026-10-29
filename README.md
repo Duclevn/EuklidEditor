@@ -9,7 +9,7 @@ A modern take on the classic Notepad++ workflow, without Electron. Free for ever
 
 ![MDLite with a Markdown Preview and the integrated Terminal](screenshots/1-preview-terminal-dark.png)
 
-MDLite starts fast and stays small: Preview and Terminal are loaded only when you open them, so the editor on its own uses about 15 MiB of memory in a typical window.
+MDLite starts fast and stays small: Preview and Terminal are loaded only when you open them, so the editor on its own uses about 17 MiB of memory in a 1600×1000-pixel window (a maximised window on a 4K display needs more, because Windows keeps a picture of every pixel).
 
 ## Download
 
@@ -25,19 +25,22 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 
 - **Editor:** fast Scintilla editing, syntax highlighting, brace matching, highlight of the selected word, word wrap, zoom, multi-cursor and a split editor. Saves keep your encoding and line endings (UTF-8/16/32 with BOM detection), never write half a file, and notice when another program changed the file.
 - **Hot exit:** closing MDLite keeps unsaved edits and open tabs for the next start. You can turn it off in Settings.
-- **Preview:** Markdown (tables, code highlighting, Mermaid, PlantUML, KaTeX math), YAML, OpenAPI/Swagger, CSV, PDF and images. Everything renders offline, with network access blocked.
+- **Preview:** Markdown (tables, code highlighting, Mermaid, PlantUML, KaTeX math), YAML, OpenAPI/Swagger, CSV, PDF and images. Everything renders offline, with network access blocked. JSON and XML files have no Preview (an OpenAPI document in JSON does). PDF, images, CSV and Markdown without diagrams or math are drawn by MDLite itself, so they open without the browser engine and use much less memory.
 - **View only mode** (`Ctrl+Alt+V`, or the **Read** / **Edit** button in the title bar): the window shows just the file, as its Preview or as read-only text, with nothing else around it. The mode is remembered, so a file you double-click opens straight into the quiet reading view.
-- **Terminal:** integrated PowerShell, Command Prompt or WSL, with copy and paste as in Windows Terminal. MDLite asks before closing over a running command. While a Windows screen reader runs it turns on xterm's screen reader mode, and its cursor stops blinking when Windows animations are off.
+- **Terminal:** integrated PowerShell, Command Prompt, Git Bash and WSL in up to ten tabs, with your own profiles in a JSON file, copy and paste as in Windows Terminal, `Ctrl+click` on file paths and links in the output, Find, full key events for programs that ask for them, a dot and a taskbar flash when a background tab rings the bell, progress on the tab and the taskbar button, a question before a multi-line paste into a shell that cannot tell pasted text from typing, and dropped files typed as paths. An optional setting marks each PowerShell command with a bar showing whether it succeeded (`Ctrl+Up` and `Ctrl+Down` jump between commands). MDLite asks before closing over a running command. While a Windows screen reader runs it turns on xterm's screen reader mode, and its cursor stops blinking when Windows animations are off.
 - **Workspace:** folder Explorer with file-type icons, drag and drop, delete to the Recycle Bin, Go to File (`Ctrl+P`) with fuzzy search, and Find in Files (`Ctrl+Shift+F`) with results grouped by file, files to include and exclude, and Replace in Files (`Ctrl+Shift+H`), which confirms first and skips files changed since the search.
 - **Start page and Open Recent:** with no document open, the editor shows Open File and Open Folder, your recent files and folders, and the main keys; just start typing for a new file. File → Open Recent (`Ctrl+R`) keeps the last 10 files and folders.
 - **Command Palette** (`Ctrl+Shift+P`): every command, the ones you used recently first, Go to Line, Go to Symbol, color theme, language and indentation pickers. Help → Keyboard Shortcuts (`Ctrl+K Ctrl+S`) lists every key.
+- **Run and edit tools:** Run Active File (`F5`), Run Selection (`F9`) and Open in Terminal (`Ctrl+Alt+T`); sort, deduplicate, trim and join lines; Format Document for JSON, XML and SVG (`Shift+Alt+F`); Title, Sentence and Invert case; bookmarks (`F2`); Find in selection (`Alt+L`); optional auto-closing brackets and quotes; in Markdown, Enter continues lists, quotes and tasks, and Edit > Markdown toggles task items, formats tables and promotes or demotes headings; Reopen with Encoding and Save with Encoding; whitespace and line-ending marks, rulers and folding. The Preview follows the editor's scroll position.
 - **Find and Replace:** find as you type, match count, regular expressions, case and whole-word options.
 - **Themes:** Default (Mariana-style), Dark and Light, with a compact custom title bar that keeps Windows Snap Layouts.
 
 | | |
 |---|---|
+| ![Editing tools beside the Markdown Preview](screenshots/3-editor-tools-dark.png) | ![OpenAPI Preview](screenshots/5-openapi-dark.png) |
+| ![PlantUML sequence diagram](screenshots/7-plantuml-dark.png) | ![KaTeX math](screenshots/8-katex-dark.png) |
 | ![View only mode, dark](screenshots/2-view-only-dark.png) | ![View only mode, light](screenshots/4-view-only-light.png) |
-| ![OpenAPI Preview](screenshots/5-openapi-dark.png) | ![PDF Preview](screenshots/6-pdf-dark.png) |
+| ![PDF Preview in View only mode](screenshots/6-pdf-dark.png) | |
 
 ## Open with
 
@@ -76,6 +79,9 @@ Files opened while MDLite is running, or several selected at once, open as tabs 
 | Find in Files / Replace in Files | `Ctrl+Shift+F` / `Ctrl+Shift+H` |
 | Toggle Explorer / Terminal / Preview | `Ctrl+B` / `Ctrl+Shift+T` (or ``Ctrl+` ``) / `Ctrl+Shift+V` |
 | Split editor | `Ctrl+\` |
+| Run Active File / Run Selection / Open in Terminal | `F5` / `F9` / `Ctrl+Alt+T` |
+| New / close Terminal tab | ``Ctrl+Shift+` `` / `Ctrl+Shift+W` |
+| Next / previous Terminal tab (while the Terminal has focus) | `Ctrl+Tab` / `Ctrl+Shift+Tab` (or `Ctrl+PgDn` / `Ctrl+PgUp`) |
 | View only / Edit mode | `Ctrl+Alt+V` |
 | Word Wrap | `Alt+Z` |
 | Zoom in / out / reset | `Ctrl+=` / `Ctrl+-` / `Ctrl+0` |
@@ -100,6 +106,9 @@ Editing keys follow VS Code and Sublime Text:
 | Delete line | `Ctrl+Shift+K` |
 | Toggle line comment | `Ctrl+/` |
 | Uppercase / lowercase | `Ctrl+K Ctrl+U` / `Ctrl+K Ctrl+L` |
+| Format Document (JSON, XML, SVG) | `Shift+Alt+F` |
+| Toggle bookmark / next / previous | `Ctrl+F2` / `F2` / `Shift+F2` |
+| Find in selection (in the Find bar) | `Alt+L` |
 
 To change a shortcut, run **File › Keyboard Shortcuts (JSON)**. It opens `keybindings.json` in the VS Code format and lists every command with its default keys; saving the file applies your changes.
 
