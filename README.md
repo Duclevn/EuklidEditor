@@ -1,21 +1,21 @@
-<p align="center"><img src="images/mdlite.svg" width="96" height="96" alt="MDLite logo"></p>
+<p align="center"><img src="images/euklid-editor.svg" width="96" height="96" alt="Euklid Editor logo"></p>
 
-<h1 align="center">MDLite</h1>
+<h1 align="center">Euklid Editor</h1>
 
 <p align="center">A lightweight, native text and code editor for Windows with a built-in <b>Preview</b> and <b>Terminal</b>.<br>
 A modern take on the classic Notepad++ workflow, without Electron. Free for everyone.</p>
 
-<p align="center"><a href="https://apps.microsoft.com/detail/9NGXBT327D13"><b>Get it from the Microsoft Store</b></a> · <a href="https://github.com/Duclevn/MDLite/releases/latest"><b>Download from GitHub</b></a> · <a href="https://github.com/Duclevn/MDLite/issues">Report an issue</a></p>
+<p align="center"><a href="https://apps.microsoft.com/detail/9NGXBT327D13"><b>Get it from the Microsoft Store</b></a> · <a href="https://github.com/Duclevn/EuklidEditor/releases/latest"><b>Download from GitHub</b></a> · <a href="https://github.com/Duclevn/EuklidEditor/issues">Report an issue</a></p>
 
-![MDLite with a Markdown Preview and the integrated Terminal](screenshots/1-preview-terminal-dark.png)
+![Euklid Editor with a Markdown Preview and the integrated Terminal](screenshots/1-preview-terminal-dark.png)
 
-MDLite starts fast and stays small: Preview and Terminal are loaded only when you open them, so the editor on its own uses about 17 MiB of memory in a 1600×1000-pixel window (a maximised window on a 4K display needs more, because Windows keeps a picture of every pixel).
+Euklid Editor starts fast and stays small: Preview and Terminal are loaded only when you open them, so the editor on its own uses about 17 MiB of memory in a 1600×1000-pixel window (a maximised window on a 4K display needs more, because Windows keeps a picture of every pixel).
 
 ## Download
 
 - **Microsoft Store (recommended):** [apps.microsoft.com/detail/9NGXBT327D13](https://apps.microsoft.com/detail/9NGXBT327D13). The Store version is signed by Microsoft and updates itself.
-- **Installer:** from [Releases](https://github.com/Duclevn/MDLite/releases/latest), run `MDLite-<version>-windows-x64-setup.exe`. It installs for your user only, needs no administrator rights and updates an older install in place.
-- **Portable:** unzip `MDLite-<version>-windows-x64.zip` anywhere and run `MDLite.exe`. The portable copy registers nothing on your system.
+- **Installer:** from [Releases](https://github.com/Duclevn/EuklidEditor/releases/latest), run `EuklidEditor-<version>-windows-x64-setup.exe`. It installs for your user only, needs no administrator rights and updates an older install in place.
+- **Portable:** unzip `EuklidEditor-<version>-windows-x64.zip` anywhere and run `EuklidEditor.exe`. The portable copy registers nothing on your system.
 
 Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Terminal use the Microsoft Edge **WebView2 Runtime**, which comes preinstalled on Windows 11.
 
@@ -24,14 +24,16 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 ## Features
 
 - **Editor:** fast Scintilla editing, syntax highlighting, brace matching, highlight of the selected word, word wrap, zoom, multi-cursor and a split editor. Saves keep your encoding and line endings (UTF-8/16/32 with BOM detection), never write half a file, and notice when another program changed the file.
-- **Hot exit:** closing MDLite keeps unsaved edits and open tabs for the next start. You can turn it off in Settings.
-- **Preview:** Markdown (tables, code highlighting, Mermaid, PlantUML, KaTeX math), YAML, OpenAPI/Swagger, CSV, PDF and images. Everything renders offline, with network access blocked. JSON and XML files have no Preview (an OpenAPI document in JSON does). PDF, images, CSV and Markdown without diagrams or math are drawn by MDLite itself, so they open without the browser engine and use much less memory.
+- **Hot exit:** closing Euklid Editor keeps unsaved edits and open tabs for the next start. You can turn it off in Settings.
+- **Preview:** Markdown (tables, code highlighting, Mermaid, PlantUML, KaTeX math), YAML, OpenAPI/Swagger, CSV, PDF and images. Everything renders offline, with network access blocked. JSON and XML files have no Preview (an OpenAPI document in JSON does). PDF, images, CSV and Markdown without diagrams or math are drawn by Euklid Editor itself, so they open without the browser engine and use much less memory.
 - **View only mode** (`Ctrl+Alt+V`, or the **Read** / **Edit** button in the title bar): the window shows just the file, as its Preview or as read-only text, with nothing else around it. The mode is remembered, so a file you double-click opens straight into the quiet reading view.
-- **Terminal:** integrated PowerShell, Command Prompt, Git Bash and WSL in up to ten tabs, with your own profiles in a JSON file, copy and paste as in Windows Terminal, `Ctrl+click` on file paths and links in the output, Find, full key events for programs that ask for them, a dot and a taskbar flash when a background tab rings the bell, progress on the tab and the taskbar button, a question before a multi-line paste into a shell that cannot tell pasted text from typing, and dropped files typed as paths. An optional setting marks each PowerShell command with a bar showing whether it succeeded (`Ctrl+Up` and `Ctrl+Down` jump between commands). MDLite asks before closing over a running command. While a Windows screen reader runs it turns on xterm's screen reader mode, and its cursor stops blinking when Windows animations are off.
+- **Terminal:** integrated PowerShell, Command Prompt, Git Bash and WSL in up to ten tabs, with your own profiles in a JSON file, copy and paste as in Windows Terminal, `Ctrl+click` on file paths and links in the output, Find, full key events for programs that ask for them, a dot and a taskbar flash when a background tab rings the bell, progress on the tab and the taskbar button, a question before a multi-line paste into a shell that cannot tell pasted text from typing, and dropped files typed as paths. An optional setting marks each PowerShell command with a bar showing whether it succeeded (`Ctrl+Up` and `Ctrl+Down` jump between commands). Euklid Editor asks before closing over a running command. While a Windows screen reader runs it turns on xterm's screen reader mode, and its cursor stops blinking when Windows animations are off.
 - **Workspace:** folder Explorer with file-type icons, drag and drop, delete to the Recycle Bin, Go to File (`Ctrl+P`) with fuzzy search, and Find in Files (`Ctrl+Shift+F`) with results grouped by file, files to include and exclude, and Replace in Files (`Ctrl+Shift+H`), which confirms first and skips files changed since the search.
 - **Start page and Open Recent:** with no document open, the editor shows Open File and Open Folder, your recent files and folders, and the main keys; just start typing for a new file. File → Open Recent (`Ctrl+R`) keeps the last 10 files and folders.
 - **Command Palette** (`Ctrl+Shift+P`): every command, the ones you used recently first, Go to Line, Go to Symbol, color theme, language and indentation pickers. Help → Keyboard Shortcuts (`Ctrl+K Ctrl+S`) lists every key.
 - **Run and edit tools:** Run Active File (`F5`), Run Selection (`F9`) and Open in Terminal (`Ctrl+Alt+T`); sort, deduplicate, trim and join lines; Format Document for JSON, XML and SVG (`Shift+Alt+F`); Title, Sentence and Invert case; bookmarks (`F2`); Find in selection (`Alt+L`); optional auto-closing brackets and quotes; in Markdown, Enter continues lists, quotes and tasks, and Edit > Markdown toggles task items, formats tables and promotes or demotes headings; Reopen with Encoding and Save with Encoding; whitespace and line-ending marks, rulers and folding. The Preview follows the editor's scroll position.
+- **Tools menu:** **Compare Files** (two files side by side, differences tinted, `F7` / `Shift+F7` to jump between them, unsaved edits included) and Base64 and URL encode/decode of the selections (or the whole document), applied as one undo step.
+- **Built-in User Guide:** Help → Documentation (`F1`) opens the full guide in its own window, offline, with a table of contents and search.
 - **Find and Replace:** find as you type, match count, regular expressions, case and whole-word options.
 - **Themes:** Default (Mariana-style), Dark and Light, with a compact custom title bar that keeps Windows Snap Layouts.
 
@@ -40,11 +42,11 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 | ![Editing tools beside the Markdown Preview](screenshots/3-editor-tools-dark.png) | ![OpenAPI Preview](screenshots/5-openapi-dark.png) |
 | ![PlantUML sequence diagram](screenshots/7-plantuml-dark.png) | ![KaTeX math](screenshots/8-katex-dark.png) |
 | ![View only mode, dark](screenshots/2-view-only-dark.png) | ![View only mode, light](screenshots/4-view-only-light.png) |
-| ![PDF Preview in View only mode](screenshots/6-pdf-dark.png) | |
+| ![PDF Preview in View only mode](screenshots/6-pdf-dark.png) | ![Compare Files with the differences tinted](screenshots/9-compare-dark.png) |
 
 ## Open with
 
-The installer and the Store version add MDLite to File Explorer's **Open with** menu for these file types. Your default apps do not change; to always open a type in MDLite, choose **Open with → Choose another app → MDLite → Always**.
+The installer and the Store version add Euklid Editor to File Explorer's **Open with** menu for these file types. Your default apps do not change; to always open a type in Euklid Editor, choose **Open with → Choose another app → Euklid Editor → Always**.
 
 | Type | Extensions |
 |---|---|
@@ -63,13 +65,14 @@ The installer and the Store version add MDLite to File Explorer's **Open with** 
 | Scripts | `.sh` `.bash` `.zsh` `.ps1` `.psm1` `.psd1` |
 | Other source code | `.cs` `.java` `.kt` `.kts` `.scala` `.groovy` `.gradle` `.go` `.rs` `.swift` `.dart` `.rb` `.php` `.lua` `.sql` |
 
-Files opened while MDLite is running, or several selected at once, open as tabs in the window that is already open. `MDLite.exe --new-window <file>` opens a separate window.
+Files opened while Euklid Editor is running, or several selected at once, open as tabs in the window that is already open. `EuklidEditor.exe --new-window <file>` opens a separate window.
 
 ## Keyboard shortcuts
 
 | Action | Shortcut |
 |---|---|
-| Command Palette | `Ctrl+Shift+P` / `F1` |
+| Command Palette | `Ctrl+Shift+P` |
+| User Guide (Help → Documentation) | `F1` |
 | Go to File (type `name:12` to open at a line) | `Ctrl+P` |
 | Open Recent | `Ctrl+R` |
 | Keyboard Shortcuts | `Ctrl+K Ctrl+S` |
@@ -114,12 +117,12 @@ To change a shortcut, run **File › Keyboard Shortcuts (JSON)**. It opens `keyb
 
 ## Privacy
 
-MDLite collects no data: no telemetry, no accounts, no update check. See [PRIVACY.md](PRIVACY.md).
+Euklid Editor collects no data: no telemetry, no accounts, no update check. See [PRIVACY.md](PRIVACY.md).
 
 ## Source code and license
 
-MDLite is free software under the GNU General Public License, version 3 or later ([LICENSE](LICENSE)). The complete source code of every version is attached to its release as `MDLite-<version>-source.zip`, next to the QScintilla source it is built with. The *Source code* links that GitHub adds to each release contain only the files of this page.
+Euklid Editor is free software under the GNU General Public License, version 3 or later ([LICENSE](LICENSE)). The complete source code of every version is attached to its release as `EuklidEditor-<version>-source.zip`, next to the QScintilla source it is built with. The *Source code* links that GitHub adds to each release contain only the files of this page.
 
-The name **MDLite** and its logo are not covered by the license: see [TRADEMARKS.md](TRADEMARKS.md). If you publish a modified version, please give it a different name and icon.
+The name **Euklid Editor** and its logo are not covered by the license: see [TRADEMARKS.md](TRADEMARKS.md). If you publish a modified version, please give it a different name and icon.
 
 Copyright (C) 2026 Duclevn.
