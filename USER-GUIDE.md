@@ -1,10 +1,68 @@
 # Euklid Editor User Guide
 
-Euklid Editor is a lightweight text and code editor for Windows with a built-in **Preview**, an integrated **Terminal** and a folder **Explorer**. This guide ships inside the app, works offline and opens with **Help → Documentation** or `F1`.
+Euklid Editor is a lightweight text and code editor for Windows with a **Preview**, a **Terminal** and a folder **Explorer** built in. This guide works offline and opens any time with **Help → Documentation** or `F1`.
+
+New here? Read the next two sections (about five minutes), then use the rest as a reference.
+
+## Why Euklid Editor
+
+### 1. Light and fast
+
+- A native Windows program, not a web app in disguise: no Electron, no bundled browser. It opens in a moment.
+- **You pay only for what you open.** The editor alone uses about 17 MiB of memory in a 1600×1000 window (measured on the 0.9.0 release; a maximized window on a 4K screen needs more). Preview and Terminal cost nothing until you open them.
+- Markdown, PDF, images and CSV are drawn by Euklid Editor itself. In the same window a Markdown Preview measured about 22 MiB for the whole program, a PDF about 42 MiB (version 0.7.0). The browser component of Windows starts only for diagrams, math, API documents and the Terminal.
+- The download is 22.4 MiB zipped.
+
+### 2. Editor, Preview and Terminal in one window
+
+- Write on the left, see the result on the right, run commands below or beside it. No window juggling.
+- **Preview** shows Markdown (tables, task lists, highlighted code, Mermaid and PlantUML diagrams, math), PDF, images, CSV and TSV, HTML pages (their own styles, no scripts) and OpenAPI documents. It follows your edits and your scroll position.
+- **Export as PDF** turns a Markdown document into a PDF file in one step.
+- The **Terminal** has tabs, PowerShell, Command Prompt, Git Bash and WSL, and can sit below the editor, in a full-height column, or fill the window.
+
+### 3. A good home for the AI coding agent you already use
+
+- Run **Claude Code, Codex, opencode, Copilot CLI, Gemini CLI or Pi** in a real Terminal next to your files. Each one found on your computer is in the New Tab menu, one click away.
+- Give the agent the whole window with `Ctrl+Shift+M`, or keep it in a full-height column on the right.
+- **Claude Code is connected to the editor.** It opens its files in tabs, sees your selection, and shows every change it wants to make in a review window where you press **Accept** or **Reject**.
+- **Insert File Reference** types `src/main.cpp:10-20` at the prompt of any agent: the file and the lines you selected.
+- Euklid Editor has no AI of its own and never uploads your files. Your agent, your account, your choice.
+
+### 4. Private, safe and familiar
+
+- **Private:** no telemetry, no accounts, no update check and no network requests of its own. Preview pages cannot reach the network.
+- **Safe:** closed by accident? Unsaved edits and open tabs come back (hot exit). Saves never leave half a file and keep the encoding and line endings. A file changed by another program is noticed.
+- **Familiar:** the keys of VS Code and Sublime Text, a Command Palette (`Ctrl+Shift+P`), multiple cursors, find in files, and your own keys in `keybindings.json`.
+- **Free and open source** under the GPL-3.0.
+
+## Quick guide: 10 things in 10 minutes
+
+Ten steps for a first session. The keys are the defaults; the buttons are on screen.
+
+1. **Open a folder.** `Ctrl+K Ctrl+O`, or **Open Folder…** on the start page. The Explorer shows it on the left (`Ctrl+B` hides and shows it). Drag files onto the window to open them.
+2. **Find anything fast.** `Ctrl+P` goes to a file by a few letters of its name. `Ctrl+Shift+P` is the Command Palette: every command, with its key.
+3. **Open the Terminal.** `` Ctrl+` ``, or the **Terminal** button on the activity rail (the narrow strip at the left edge). It starts in your folder. The **+** in its header opens another tab (`` Ctrl+Shift+` ``).
+4. **Give it room.** In the Terminal header, **Move Terminal to the right** puts it in a full-height column; **Maximize** (`Ctrl+Shift+M`) lets it fill the window. The same key brings the editor back.
+5. **Start an AI agent.** Click the arrow beside **+** in the Terminal header and pick Claude Code (or Codex, opencode and the others on your computer). The agent is a separate program that you install and sign in to yourself; it uses your own account. In Claude Code, type `/ide`: it lists **Euklid Editor**.
+6. **Ask it for a Markdown file.** For example:
+
+   > Create notes.md with a short summary, a table comparing three options and a Mermaid diagram of the steps.
+
+   Claude Code shows the new file in a **review window**: read it, then press **Accept** and the file is saved. Other agents write the file themselves; open it from the Explorer.
+7. **Preview it.** `Ctrl+Shift+V`, or the eye button at the right end of the tab strip. The table is a table, the diagram is a diagram. Scroll the editor and the Preview follows.
+8. **Export it as PDF.** **File → Export as PDF…**, or the PDF button in the Preview header. Choose a name; the file is written beside your Markdown file by default.
+9. **Search and edit at scale.** `Ctrl+Shift+F` searches the whole folder, `Ctrl+Shift+H` replaces across files (it asks first). `Ctrl+D` adds the next match as another cursor, so one typing edits them all.
+10. **Compare, then relax.** **Tools → Compare Files…** shows two files side by side with the differences tinted. `Ctrl+Alt+V` switches to **View only**, a quiet reader with nothing but the file.
+
+Your work is kept when you close the window, so you can stop at any step and come back.
+
+## Features in detail
+
+The rest of this guide describes each part of Euklid Editor.
 
 ## Getting started
 
-- **Open something.** `Ctrl+O` opens a file, `Ctrl+K Ctrl+O` opens a folder as your workspace, and `Ctrl+R` lists recent files and folders. You can also drag files onto the window, or use **Open with** in File Explorer (the installer and the Store version add it).
+- **Open something.** `Ctrl+O` opens a file, `Ctrl+K Ctrl+O` opens a folder as your workspace, and `Ctrl+R` lists recent files and folders. You can also drag files onto the window, or use **Open with** in File Explorer (the installer and the Store version add it). The Open, Save As and Open Folder windows start in the folder of the file you are editing, else your workspace folder, else where you last chose something.
 - **Start typing.** With no document open the start page offers Open File and Open Folder, your recent items and the main keys. Typing on it starts a new file.
 - **Find any command.** `Ctrl+Shift+P` opens the Command Palette: every command, the ones you used recently first. `Ctrl+P` goes to a file in the workspace, `Ctrl+G` to a line, `Ctrl+Shift+O` to a symbol in the current file.
 - **Your work is safe.** Unsaved edits and open tabs are kept when you close the window and come back at the next start (hot exit; you can turn it off in Settings). Saves keep the file's encoding and line endings and never leave half a file. If another program changes a file you have open, Euklid Editor reloads it when you have no edits, or asks what to do when you do.
@@ -12,9 +70,9 @@ Euklid Editor is a lightweight text and code editor for Windows with a built-in 
 ## The window
 
 - **Title bar:** the menus, the command center, the **Read** / **Edit** button for View only mode, and the window buttons.
-- **Activity rail** (left edge): the Explorer, Find in Files and the Terminal.
+- **Activity rail** (left edge): the Explorer, Find in Files, the Terminal and Settings.
 - **Editor:** tabs with a dot on unsaved files. `Ctrl+\` splits the editor into two groups that can show the same file or different ones; **View → Editor Layout** chooses one or two columns. `Ctrl+K Ctrl+P` lists every open file, and `Ctrl+K Ctrl+Shift+T` reopens the last closed one.
-- **Preview** (right of the editor, `Ctrl+Shift+V`) and **Terminal** (below, `Ctrl+Shift+T` or `` Ctrl+` ``) open only when you ask for them. Euklid Editor stays small until you do.
+- **Preview** (right of the editor, `Ctrl+Shift+V` or the eye button in the tab strip) and **Terminal** (below, or in a column on the right; `Ctrl+Shift+T` or `` Ctrl+` ``) open only when you ask for them. Euklid Editor stays small until you do.
 - **Status bar:** the caret position, indentation, encoding, line endings and language; each one is clickable and offers to change it.
 - In a narrow window the side panels step aside: the one you asked for last stays.
 - `F6` and `Shift+F6` move the keyboard focus between the panes; `Ctrl+1`, `Ctrl+2` and `Ctrl+3` jump to the editor, the Preview and the Terminal.
@@ -40,7 +98,7 @@ Euklid Editor is a lightweight text and code editor for Windows with a built-in 
 
 ## Find and Replace
 
-`Ctrl+F` opens the Find bar over the editor, `Ctrl+H` adds Replace. It finds as you type, shows the number of matches, and offers regular expressions, match case and whole word. The regular expressions use the same syntax as Find in Files, with `$1` (or ``) for a captured group in the replacement.
+`Ctrl+F` opens the Find bar over the editor, `Ctrl+H` adds Replace. It finds as you type, shows the number of matches, and offers regular expressions, match case and whole word. The regular expressions use the same syntax as Find in Files, with `$1` (or ``) for a captured group in the replacement.
 
 ## Preview
 
@@ -51,20 +109,49 @@ The Preview shows the active file next to the editor and follows your edits. It 
 | Markdown | Tables, task lists, highlighted code, Mermaid and PlantUML diagrams and KaTeX math |
 | YAML and JSON that is an OpenAPI document | The API reference |
 | CSV and TSV | A table |
+| HTML | The page with its own styles; scripts are never run |
 | PDF | The pages, with zoom and search |
 | PNG, JPEG, GIF, BMP, WebP, TIFF | The picture, with zoom |
 
-Other JSON and XML files have no Preview. Markdown without diagrams or math, PDF, images and CSV are drawn by Euklid Editor itself, so they open quickly and use little memory; diagrams and math use the browser engine that Windows provides (the WebView2 Runtime), which starts only for those documents. With **Scroll sync** on (Settings), the Preview and the editor scroll together, and double-clicking in the Preview jumps to that line of the source. Links in a Preview open in your browser only after you confirm.
+An HTML page shows its own styles (CSS) but runs no scripts, and loads nothing from the network. Other JSON and XML files have no Preview. Markdown without diagrams or math, PDF, images and CSV are drawn by Euklid Editor itself, so they open quickly and use little memory; diagrams and math use the browser engine that Windows provides (the WebView2 Runtime), which starts only for those documents. With **Scroll sync** on (Settings, on by default), the Preview and the editor scroll together, and double-clicking in the Preview jumps to that line of the source. Links in a Preview open in your browser only after you confirm.
+
+### Export as PDF
+
+**File → Export as PDF…** (`file.exportPdf`, no default key; you can give it one in `keybindings.json`) and the small download button in the Preview header save the Markdown document you are editing as a PDF file.
+
+- It is available for Markdown documents only, also in View only mode. The text is taken as it is on screen, unsaved edits included.
+- The pages are A4 with 18 mm margins, black on white whatever theme the editor uses, with page numbers in the footer. Long lines of code wrap instead of being cut. Web (`https`) links in the document stay clickable; links to a heading of the same document do not.
+- You choose the name and folder; the suggestion is `<name>.pdf` beside the Markdown file. The file is written under a temporary name and renamed at the end, so a cancelled or failed export never leaves half a file or damages an existing PDF, and the Markdown file itself is never replaced.
+- Pictures from the document's folder are included. Plain Markdown is exported by Euklid Editor itself; a document with diagrams or math is drawn by the browser component of Windows for the export.
+- A progress window with **Cancel** appears for a long document, and the status bar tells you the file and the number of pages when it is done.
+- The limit is the same as Preview's (1 MiB of text); a larger document is refused with a message.
 
 ## Terminal
 
-The Terminal (`` Ctrl+` `` or `Ctrl+Shift+T`) runs PowerShell, Command Prompt, Git Bash or a WSL distribution in the folder you choose, in up to ten tabs. `` Ctrl+Shift+` `` opens a new tab and `Ctrl+Shift+W` closes one; closing a tab with a running command asks first.
+The Terminal (`` Ctrl+` `` or `Ctrl+Shift+T`, or the Terminal button on the activity rail) runs PowerShell, Command Prompt, Git Bash or a WSL distribution in the folder you choose, in up to ten tabs. `` Ctrl+Shift+` `` (or the **+** in the header) opens a new tab and `Ctrl+Shift+W` closes one; closing a tab with a running command asks first. The arrow beside **+** opens a tab with a profile you choose.
 
 - Copy and paste work as in Windows Terminal, and a paste of several lines into a shell that cannot tell it from typing asks first.
 - `Ctrl+click` opens a file path or a link in the output (links ask first).
 - `Ctrl+F` finds in the output. A background tab that rings the bell shows a dot, and the taskbar button flashes; progress reported by a program shows on its tab.
 - Files dropped onto the Terminal are typed as paths.
-- **Terminal → Open Terminal Profiles (JSON)** opens `profiles.json`, where you add your own profiles (command line, arguments, start folder, environment) or hide detected ones. **Settings → Terminal** has the default profile and start folder, the font, the cursor, the scrollback and a few behaviors.
+- `Shift+Enter` starts a new line in the prompt of Claude Code, Codex and similar agents; at a PowerShell prompt it keeps its own meaning.
+- The Terminal sits below the editor or, with the button in its header (or **Run → Move Terminal to the Right**), in a full-height column on the right, which suits an agent such as Claude Code or a long log. Each placement remembers its own size. `Ctrl+Shift+M` (**Run → Maximize Terminal**, or the header button) makes the Terminal fill everything right of the activity rail, also from inside the Terminal; opening a file, `Ctrl+1` or the Explorer and Preview toggles bring the editor back, and a window closed while the Terminal was maximized opens maximized again.
+- **Run active file or selection:** `F5` and `F9` type the command into the Terminal; **Run → Open Active File's Folder in Terminal** (`Ctrl+Alt+T`) opens a tab in the file's folder.
+- **Agents:** if Claude Code, Codex, opencode, Copilot CLI, Gemini CLI or Pi is installed (found on the `PATH`), the New Tab menu lists it, and a click starts it in the workspace folder; the tab stays open as a shell when the agent exits. Euklid Editor installs no agent and runs nothing you did not install; hide one in `profiles.json` with `"hidden"` like any detected profile.
+- **Run → Open Terminal Profiles (JSON)** opens `profiles.json`, where you add your own profiles (command line, arguments, start folder, environment) or hide detected ones. **Settings → Terminal** has the default profile and start folder, the font, the cursor, the scrollback and a few behaviors.
+
+### Claude Code in the Terminal
+
+Run `claude` in a Terminal tab and Claude Code finds this window by itself (`/ide` in Claude Code shows "Euklid Editor"). From then on:
+
+- A file Claude Code opens appears in an editor tab, and the text you select in the editor is what Claude Code sees as your selection.
+- **A change Claude Code proposes opens in a review window** (Compare Files with **Accept** and **Reject**) instead of in the terminal. **Accept** applies it to the document as one undo step and saves the file; **Reject**, `Esc` or closing the window refuses it, and Claude Code is told so. A document with unsaved changes is never overwritten: the change is refused and the status bar says why, so save or revert the document and ask again.
+- Claude Code has permission modes (cycle them with `Shift+Tab`). In its **auto mode** it writes files without asking, so no review window opens; in the default mode every change is shown here first.
+- **Terminal: Send Selection to Claude Code** (Command Palette, or **Run**) sends the file and the selected lines as an @-mention.
+- **Terminal: Insert File Reference** (Command Palette, or **Run**) types `src/main.cpp:10-20` (the file, relative to the folder, and the selected lines) at the Terminal's prompt without pressing Enter. It works with any agent or program that reads a path from its prompt, with or without the link.
+- **Tools → Compare with Version Before Reload** shows what any agent changed when the editor reloaded a file (see the Tools menu).
+
+The link works only on this computer: Euklid Editor listens on `127.0.0.1` while a Terminal shell runs, with a secret token in a file in `.claude\ide` in your user profile that only you can read, and it stops with the last shell. It adds no network traffic. To turn it off, clear **Settings → Terminal → Claude Code**; it applies to Terminal tabs started afterwards. Claude Code's connection to the editor is not documented by Anthropic and may change between versions.
 
 ## View only mode
 
@@ -72,9 +159,10 @@ View only (`Ctrl+Alt+V`, or the **Read** button in the title bar) turns the wind
 
 ## Tools menu
 
-The **Tools** menu has five commands. None has a default key, but you can give each one in `keybindings.json`.
+The **Tools** menu has six commands. None has a default key, but you can give each one in `keybindings.json`.
 
 - **Compare Files…** (`tools.compare`) compares the text of two files line by line. The left side is the file you are editing; choose the right side from your other open files or browse for a file. The two files appear side by side in their own window with line numbers, removed, added and changed lines tinted and one shared scroll. **Next** and **Previous** (`F7` and `Shift+F7` in that window) jump between differences, **Ignore trailing whitespace** ignores spaces at the end of lines, and `Esc` or `Ctrl+W` closes the window. A file you have changed but not saved is compared as it is on screen and marked *unsaved*. If two files differ only in line endings or encoding (for example UTF-8 and UTF-8 with BOM), the window says so instead of marking every line. Files over 5 MiB, binary files and pairs that are too different to compare line by line are refused with a reason.
+- **Compare with Version Before Reload** (`tools.compareBeforeReload`) shows what an outside change did: when a file changes on disk and Euklid Editor reloads it (an agent, a formatter, `git checkout`), or you use Revert File, the text from just before is kept, and this opens it beside the document as it is now. It keeps the latest reload of the three documents most recently reloaded, up to 8 MiB each, and forgets them when the document closes.
 - **Base64 Encode** and **Base64 Decode** convert every selection, or the whole document when nothing is selected, as one undo step. Text is encoded as UTF-8. Decoding accepts input without `=` padding, ignores spaces and line breaks inside the data, and accepts the URL-safe alphabet (`-` and `_`).
 - **URL Encode** and **URL Decode** do the same with percent-encoding (RFC 3986): letters, digits and `-` `.` `_` `~` stay, every other byte of the UTF-8 text becomes `%XX` (space is `%20`). Decoding reads `%XX` sequences only; a `+` stays a `+`, it is not turned into a space.
 
@@ -82,7 +170,7 @@ If any selection cannot be converted (invalid Base64, a broken `%` sequence, or 
 
 ## Settings and keyboard shortcuts
 
-- **Settings** (`Ctrl+,`) has Appearance (the Default, Dark and Light themes), Editor (font, tab width, spaces or tabs, wrap, rulers, auto-closing brackets, hot exit), Preview (scroll sync) and Terminal. **Reset Settings** in the Command Palette puts everything back, with an option to reset your keyboard shortcuts too.
+- **Settings** (`Ctrl+,`, or the gear on the activity rail) has Appearance (the Default, Dark and Light themes), Editor (font, tab width, spaces or tabs, wrap, rulers, auto-closing brackets, hot exit), Preview (scroll sync) and Terminal. **Reset Settings** in the Command Palette puts everything back, with an option to reset your keyboard shortcuts too.
 - **Keyboard Shortcuts** (`Ctrl+K Ctrl+S`) lists every key. To change one, choose **File → Keyboard Shortcuts (JSON)**: it opens `keybindings.json`, created with every command and its key as comments. Add entries in the format of VS Code:
 
   ```json
@@ -150,6 +238,7 @@ The default keys. The command ID is what you use in `keybindings.json`.
 | Run active file | `terminal.runActiveFile` | `F5` |
 | Run selection | `terminal.runSelection` | `F9` |
 | Open in Terminal | `terminal.openActiveFileFolder` | `Ctrl+Alt+T` |
+| Maximize Terminal | `terminal.toggleMaximized` | `Ctrl+Shift+M` |
 | New Terminal tab | `terminal.newTab` | `` Ctrl+Shift+` `` |
 | Close Terminal tab | `terminal.closeTab` | `Ctrl+Shift+W` |
 | Select color theme | `theme.select` | `Ctrl+K, Ctrl+T` |
@@ -158,11 +247,14 @@ The default keys. The command ID is what you use in `keybindings.json`.
 
 ## Privacy
 
-Euklid Editor collects nothing: no telemetry, no analytics, no accounts, no update check, and no network requests of its own. Your settings, open tabs and unsaved-change backups stay in your Windows user profile. The Preview renders offline and blocks the network. The Terminal runs the shell you choose with your own permissions, so what you run there can reach the network like any shell. A link opens in your browser only after you confirm. The full statement is in the privacy file of the project.
+Euklid Editor collects nothing: no telemetry, no analytics, no accounts, no update check, and no network requests of its own (the optional Claude Code link only listens on this computer, `127.0.0.1`). Your settings, open tabs and unsaved-change backups stay in your Windows user profile. The Preview renders offline and blocks the network. The Terminal runs the shell you choose with your own permissions, so what you run there, an AI agent included, can reach the network like any program you start. A link opens in your browser only after you confirm. The full statement is in the privacy file of the project.
 
 ## Troubleshooting
 
 - **The Preview or the Terminal does not appear.** They need the Microsoft Edge WebView2 Runtime, which Windows 11 includes; on Windows 10 install it from Microsoft. Markdown without diagrams, PDF, images and CSV do not need it.
+- **My AI agent is not in the New Tab menu.** The menu lists the agents whose command is found on the `PATH`. Install the agent, close Euklid Editor completely and start it again, so the new `PATH` is read.
+- **Claude Code does not show "Euklid Editor" in `/ide`.** Start Claude Code from a Terminal tab of Euklid Editor, not from another window, and check that **Settings → Terminal → Claude Code** is on. The setting applies to tabs started afterwards.
+- **Export as PDF is greyed out.** It works on Markdown documents only; open the `.md` file and try again.
 - **A shortcut does nothing.** Another command may have taken the key in `keybindings.json`; the status bar reports problems in that file when it loads. **Keyboard Shortcuts** (`Ctrl+K Ctrl+S`) shows what each key does now.
 - **A file opens as strange characters or as raw bytes.** It is not valid UTF-8, UTF-16 or UTF-32 text. Use the encoding in the status bar to reopen it as a Windows code page.
 - **A save says the file changed on disk.** Another program wrote it after you opened it. Choose to overwrite it, reload it, or save under another name.
