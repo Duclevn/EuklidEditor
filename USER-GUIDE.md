@@ -11,7 +11,7 @@ New here? Read the next two sections (about five minutes), then use the rest as 
 - A native Windows program, not a web app in disguise: no Electron, no bundled browser. It opens in a moment.
 - **You pay only for what you open.** The editor alone uses about 17 MiB of memory in a 1600×1000 window (measured on the 0.9.0 release; a maximized window on a 4K screen needs more). Preview and Terminal cost nothing until you open them.
 - Markdown, PDF, images and CSV are drawn by Euklid Editor itself. In the same window a Markdown Preview measured about 22 MiB for the whole program, a PDF about 42 MiB (version 0.7.0). The browser component of Windows starts only for diagrams, math, API documents and the Terminal.
-- The download is 22.4 MiB zipped.
+- The download is about 24 MB zipped.
 
 ### 2. Editor, Preview and Terminal in one window
 
@@ -62,7 +62,7 @@ The rest of this guide describes each part of Euklid Editor.
 
 ## Getting started
 
-- **Open something.** `Ctrl+O` opens a file, `Ctrl+K Ctrl+O` opens a folder as your workspace, and `Ctrl+R` lists recent files and folders. You can also drag files onto the window, or use **Open with** in File Explorer (the installer and the Store version add it). The Open, Save As and Open Folder windows start in the folder of the file you are editing, else your workspace folder, else where you last chose something.
+- **Open something.** `Ctrl+O` opens a file, `Ctrl+K Ctrl+O` opens a folder as your workspace, and `Ctrl+R` lists recent files and folders. You can also drag files onto the window, or use **Open with** in File Explorer (the installer and the Store version add it). Starting Euklid Editor with a folder (`EuklidEditor <folder>`), or handing a folder over that way to a running window, makes it the workspace, as **Open Folder** does; no document opens for it. Several paths open their files as tabs, and the last folder among them becomes the workspace. In View only a folder is ignored with a message. The Open, Save As and Open Folder windows start in the folder of the file you are editing, else your workspace folder, else where you last chose something.
 - **Start typing.** With no document open the start page offers Open File and Open Folder, your recent items and the main keys. Typing on it starts a new file.
 - **Find any command.** `Ctrl+Shift+P` opens the Command Palette: every command, the ones you used recently first. `Ctrl+P` goes to a file in the workspace, `Ctrl+G` to a line, `Ctrl+Shift+O` to a symbol in the current file.
 - **Your work is safe.** Unsaved edits and open tabs are kept when you close the window and come back at the next start (hot exit; you can turn it off in Settings). Saves keep the file's encoding and line endings and never leave half a file. If another program changes a file you have open, Euklid Editor reloads it when you have no edits, or asks what to do when you do.
@@ -98,7 +98,7 @@ The rest of this guide describes each part of Euklid Editor.
 
 ## Find and Replace
 
-`Ctrl+F` opens the Find bar over the editor, `Ctrl+H` adds Replace. It finds as you type, shows the number of matches, and offers regular expressions, match case and whole word. The regular expressions use the same syntax as Find in Files, with `$1` (or ``) for a captured group in the replacement.
+`Ctrl+F` opens the Find bar over the editor, `Ctrl+H` adds Replace. It finds as you type, shows the number of matches, and offers regular expressions, match case and whole word. The regular expressions use the same syntax as Find in Files, with `$1` (or `\1`) for a captured group in the replacement.
 
 ## Preview
 
@@ -134,11 +134,12 @@ The Terminal (`` Ctrl+` `` or `Ctrl+Shift+T`, or the Terminal button on the acti
 - `Ctrl+click` opens a file path or a link in the output (links ask first).
 - `Ctrl+F` finds in the output. A background tab that rings the bell shows a dot, and the taskbar button flashes; progress reported by a program shows on its tab.
 - Files dropped onto the Terminal are typed as paths.
+- **Run → Terminal: Select Color Scheme…** (also in **Settings → Terminal**) gives the Terminal its own colors, independent of the color theme: Campbell, Campbell Powershell, One Half, Solarized or Tango. **Follow Color Theme** goes back to the theme's Terminal colors.
 - `Shift+Enter` starts a new line in the prompt of Claude Code, Codex and similar agents; at a PowerShell prompt it keeps its own meaning.
 - The Terminal sits below the editor or, with the button in its header (or **Run → Move Terminal to the Right**), in a full-height column on the right, which suits an agent such as Claude Code or a long log. Each placement remembers its own size. `Ctrl+Shift+M` (**Run → Maximize Terminal**, or the header button) makes the Terminal fill everything right of the activity rail, also from inside the Terminal; opening a file, `Ctrl+1` or the Explorer and Preview toggles bring the editor back, and a window closed while the Terminal was maximized opens maximized again.
 - **Run active file or selection:** `F5` and `F9` type the command into the Terminal; **Run → Open Active File's Folder in Terminal** (`Ctrl+Alt+T`) opens a tab in the file's folder.
 - **Agents:** if Claude Code, Codex, opencode, Copilot CLI, Gemini CLI or Pi is installed (found on the `PATH`), the New Tab menu lists it, and a click starts it in the workspace folder; the tab stays open as a shell when the agent exits. Euklid Editor installs no agent and runs nothing you did not install; hide one in `profiles.json` with `"hidden"` like any detected profile.
-- **Run → Open Terminal Profiles (JSON)** opens `profiles.json`, where you add your own profiles (command line, arguments, start folder, environment) or hide detected ones. **Settings → Terminal** has the default profile and start folder, the font, the cursor, the scrollback and a few behaviors.
+- **Run → Open Terminal Profiles (JSON)** opens `profiles.json`, where you add your own profiles (command line, arguments, start folder, environment) or hide detected ones. **Settings → Shell** has the default profile and start folder, the font, the cursor, the scrollback and a few behaviors.
 
 ### Claude Code in the Terminal
 
@@ -151,7 +152,7 @@ Run `claude` in a Terminal tab and Claude Code finds this window by itself (`/id
 - **Terminal: Insert File Reference** (Command Palette, or **Run**) types `src/main.cpp:10-20` (the file, relative to the folder, and the selected lines) at the Terminal's prompt without pressing Enter. It works with any agent or program that reads a path from its prompt, with or without the link.
 - **Tools → Compare with Version Before Reload** shows what any agent changed when the editor reloaded a file (see the Tools menu).
 
-The link works only on this computer: Euklid Editor listens on `127.0.0.1` while a Terminal shell runs, with a secret token in a file in `.claude\ide` in your user profile that only you can read, and it stops with the last shell. It adds no network traffic. To turn it off, clear **Settings → Terminal → Claude Code**; it applies to Terminal tabs started afterwards. Claude Code's connection to the editor is not documented by Anthropic and may change between versions.
+The link works only on this computer: Euklid Editor listens on `127.0.0.1` while a Terminal shell runs, with a secret token in a file in `.claude\ide` in your user profile that only you can read, and it stops with the last shell. It adds no network traffic. To turn it off, clear **Settings → Shell → Claude Code**; it applies to Terminal tabs started afterwards. Claude Code's connection to the editor is not documented by Anthropic and may change between versions.
 
 ## View only mode
 
@@ -170,7 +171,7 @@ If any selection cannot be converted (invalid Base64, a broken `%` sequence, or 
 
 ## Settings and keyboard shortcuts
 
-- **Settings** (`Ctrl+,`, or the gear on the activity rail) has Appearance (the Default, Dark and Light themes), Editor (font, tab width, spaces or tabs, wrap, rulers, auto-closing brackets, hot exit), Preview (scroll sync) and Terminal. **Reset Settings** in the Command Palette puts everything back, with an option to reset your keyboard shortcuts too.
+- **Settings** (`Ctrl+,`, or the gear on the activity rail) has four pages: General (the Default, Dark and Light themes, Preview scroll sync, hot exit), Editor (font, tab width, spaces or tabs, wrap, rulers, auto-closing brackets), Terminal (font, color scheme, cursor, scrollback) and Shell (default profile, start folder, keys, paste guard, the Claude Code link). **Reset Settings** in the Command Palette puts everything back, with an option to reset your keyboard shortcuts too.
 - **Keyboard Shortcuts** (`Ctrl+K Ctrl+S`) lists every key. To change one, choose **File → Keyboard Shortcuts (JSON)**: it opens `keybindings.json`, created with every command and its key as comments. Add entries in the format of VS Code:
 
   ```json
@@ -253,7 +254,7 @@ Euklid Editor collects nothing: no telemetry, no analytics, no accounts, no upda
 
 - **The Preview or the Terminal does not appear.** They need the Microsoft Edge WebView2 Runtime, which Windows 11 includes; on Windows 10 install it from Microsoft. Markdown without diagrams, PDF, images and CSV do not need it.
 - **My AI agent is not in the New Tab menu.** The menu lists the agents whose command is found on the `PATH`. Install the agent, close Euklid Editor completely and start it again, so the new `PATH` is read.
-- **Claude Code does not show "Euklid Editor" in `/ide`.** Start Claude Code from a Terminal tab of Euklid Editor, not from another window, and check that **Settings → Terminal → Claude Code** is on. The setting applies to tabs started afterwards.
+- **Claude Code does not show "Euklid Editor" in `/ide`.** Start Claude Code from a Terminal tab of Euklid Editor, not from another window, and check that **Settings → Shell → Claude Code** is on. The setting applies to tabs started afterwards.
 - **Export as PDF is greyed out.** It works on Markdown documents only; open the `.md` file and try again.
 - **A shortcut does nothing.** Another command may have taken the key in `keybindings.json`; the status bar reports problems in that file when it loads. **Keyboard Shortcuts** (`Ctrl+K Ctrl+S`) shows what each key does now.
 - **A file opens as strange characters or as raw bytes.** It is not valid UTF-8, UTF-16 or UTF-32 text. Use the encoding in the status bar to reopen it as a Windows code page.

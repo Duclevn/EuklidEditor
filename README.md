@@ -42,7 +42,7 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 - **Tools menu:** **Compare Files** (two files side by side, differences tinted, `F7` / `Shift+F7` to jump between them, unsaved edits included) and Base64 and URL encode/decode of the selections (or the whole document), applied as one undo step.
 - **Built-in User Guide:** Help → Documentation (`F1`) opens the full guide in its own window, offline, with a table of contents and search.
 - **Find and Replace:** find as you type, match count, regular expressions, case and whole-word options.
-- **Themes:** Default (Mariana-style), Dark and Light, with a compact custom title bar that keeps Windows Snap Layouts.
+- **Themes:** Default (Mariana-style), Dark and Light, with a compact custom title bar that keeps Windows Snap Layouts. The Terminal can follow the theme or use its own color scheme (Campbell, One Half, Solarized, Tango).
 
 | | |
 |---|---|
