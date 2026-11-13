@@ -128,7 +128,7 @@ Euklid Editor collects no data: no telemetry, no accounts, no update check. See 
 
 ## Source code and license
 
-Euklid Editor is free software under the GNU General Public License, version 3 or later ([LICENSE](LICENSE)). The complete source code of every version is attached to its release as `EuklidEditor-<version>-source.zip`, next to the QScintilla source it is built with. The *Source code* links that GitHub adds to each release contain only the files of this page.
+Euklid Editor is free software under the GNU General Public License, version 3 or later ([LICENSE](LICENSE)). The complete source code of every version is attached to its release as `EuklidEditor-<version>-source.zip`; since 1.0 that archive also holds the Scintilla and Lexilla sources the editor is built with (older releases carry the QScintilla source next to it). The *Source code* links that GitHub adds to each release contain only the files of this page.
 
 The name **Euklid Editor** and its logo are not covered by the license: see [TRADEMARKS.md](TRADEMARKS.md). If you publish a modified version, please give it a different name and icon.
 
