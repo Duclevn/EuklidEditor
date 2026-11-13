@@ -7,7 +7,7 @@ A modern take on the classic Notepad++ workflow, without Electron. Free for ever
 
 <p align="center"><a href="https://apps.microsoft.com/detail/9NGXBT327D13"><b>Get it from the Microsoft Store</b></a> · <a href="https://github.com/Duclevn/EuklidEditor/releases/latest"><b>Download from GitHub</b></a> · <a href="https://github.com/Duclevn/EuklidEditor/issues">Report an issue</a></p>
 
-![Euklid Editor with a Markdown Preview and the integrated Terminal](screenshots/1-preview-terminal-dark.png)
+![Euklid Editor with a Markdown Preview and the integrated Terminal running Claude Code](screenshots/1-preview-terminal-default.png)
 
 **Why Euklid Editor**
 
@@ -46,10 +46,10 @@ Requirements: Windows 10 (1809 or later) or Windows 11, x64. Preview and Termina
 
 | | |
 |---|---|
-| ![Editing tools beside the Markdown Preview](screenshots/3-editor-tools-dark.png) | ![OpenAPI Preview](screenshots/5-openapi-dark.png) |
-| ![PlantUML sequence diagram](screenshots/7-plantuml-dark.png) | ![KaTeX math](screenshots/8-katex-dark.png) |
-| ![View only mode, dark](screenshots/2-view-only-dark.png) | ![View only mode, light](screenshots/4-view-only-light.png) |
-| ![PDF Preview in View only mode](screenshots/6-pdf-dark.png) | ![Compare Files with the differences tinted](screenshots/9-compare-dark.png) |
+| ![Editing tools beside the Markdown Preview](screenshots/3-editor-tools-default.png) | ![OpenAPI Preview](screenshots/5-openapi-default.png) |
+| ![PlantUML sequence diagram](screenshots/7-plantuml-default.png) | ![KaTeX math](screenshots/8-katex-default.png) |
+| ![View only mode](screenshots/2-view-only-default.png) | ![PDF Preview in View only mode](screenshots/6-pdf-default.png) |
+| ![Compare Files with the differences tinted](screenshots/9-compare-default.png) | |
 
 ## Open with
 
